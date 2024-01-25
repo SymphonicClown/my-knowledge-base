@@ -71,7 +71,7 @@ guest:$y$j9T$36eh15AbQRPefTvNhOAC70$fLZwJCFwDBv0nxOcmpFe8g5Kf3zVUU2eE6J3hJ4Pkc.:
 
 Как тру прогеры, после установки Apache нужно установить правильные права доступа для пользователей и групп.
 Помогут команды chown (изменить владельца) и chmod (изменить права доступа).
-Кстати, осле установки web-сервера Apache запущен под пользователем и группой www-data, директории виртуальных хостов расположены в /var/www.
+Кстати, после установки web-сервера Apache запущен под пользователем и группой www-data, директории виртуальных хостов расположены в /var/www.
 
 Делаем овнером папку проекта - www-data:
 
@@ -108,3 +108,17 @@ passwd: password updated successfully
 
 - Пользователь developer (разработчик) имеет право на чтение и запись файлов, потому что является их владельцем
 - Пользователь www-data (web-сервер) имеет право на чтение файлов, потому что принадлежит к группе www-data
+
+После всего этого может возникнуть ошибка ларки 
+
+```
+Failed to open stream: Permission denied The exception occurred while attempting to log: The stream or file "/var/www/korobov-vladislav.ru/public_html/laravel-expert/storage/logs/laravel.log" could not be opened in append mode:
+```
+Решается путем настройки прав для пользователя и проекта, где мб понадобится дать судо пользователю 
+
+---------------------------------------------------------------------------
+
+## [Даем sudo пользователю](https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel)
+## [Настраиваем права для пользователя](https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel)
+
+---------------------------------------------------------------------------
